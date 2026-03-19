@@ -1,0 +1,31 @@
+{
+  "name": "nginx",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_nginx_status",
+      "description": "Show Nginx server status via stub_status module or validate config",
+      "command": "curl -s http://127.0.0.1/nginx_status 2>/dev/null || nginx -t 2>&1"
+    },
+    {
+      "name": "ctx_nginx_config_test",
+      "description": "Test Nginx configuration for syntax errors",
+      "command": "nginx -t 2>&1"
+    },
+    {
+      "name": "ctx_nginx_access_log",
+      "description": "Show recent lines from the Nginx access log",
+      "command": "tail -n {{lines}} /var/log/nginx/access.log",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "lines": {
+            "type": "integer",
+            "description": "Number of log lines to display",
+            "default": 50
+          }
+        }
+      }
+    }
+  ]
+}

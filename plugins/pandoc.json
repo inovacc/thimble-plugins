@@ -1,0 +1,34 @@
+{
+  "name": "pandoc",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_pandoc_convert",
+      "description": "Convert a document between formats using Pandoc",
+      "command": "pandoc {{input}} -o {{output}} -t {{format}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Path to the input document"
+          },
+          "output": {
+            "type": "string",
+            "description": "Path for the output document"
+          },
+          "format": {
+            "type": "string",
+            "description": "Output format (e.g. html, pdf, docx, latex, epub)"
+          }
+        },
+        "required": ["input", "output", "format"]
+      }
+    },
+    {
+      "name": "ctx_pandoc_formats",
+      "description": "List all supported Pandoc output formats",
+      "command": "pandoc --list-output-formats"
+    }
+  ]
+}

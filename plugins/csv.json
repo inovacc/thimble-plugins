@@ -1,0 +1,71 @@
+{
+  "name": "csv",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_csv_query",
+      "description": "Run a SQL query against a CSV file using DuckDB",
+      "command": "duckdb -c \"SELECT * FROM read_csv_auto('{{file}}') LIMIT 100\"",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the CSV file"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_csv_head",
+      "description": "Show the first N rows of a CSV file with column headers",
+      "command": "head -n {{lines}} '{{file}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the CSV file"
+          },
+          "lines": {
+            "type": "integer",
+            "description": "Number of lines to display (including header)",
+            "default": 10
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_csv_stats",
+      "description": "Show CSV file statistics including row count and column count",
+      "command": "echo \"Rows: $(wc -l < '{{file}}')\" && echo \"Columns: $(head -1 '{{file}}' | awk -F',' '{print NF}')\"",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the CSV file"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_csv_schema",
+      "description": "Detect column names and types from a CSV file",
+      "command": "duckdb -c \"DESCRIBE SELECT * FROM read_csv_auto('{{file}}')\"",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the CSV file"
+          }
+        },
+        "required": ["file"]
+      }
+    }
+  ]
+}

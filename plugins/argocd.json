@@ -1,0 +1,47 @@
+{
+  "name": "argocd",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_argo_apps",
+      "description": "List all Argo CD applications with sync status and health.",
+      "command": "argocd app list -o wide"
+    },
+    {
+      "name": "ctx_argo_sync",
+      "description": "Trigger a sync for an Argo CD application.",
+      "command": "argocd app sync {{.app}}",
+      "input_schema": {
+        "app": {
+          "type": "string",
+          "description": "Argo CD application name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_argo_history",
+      "description": "Show deployment history for an Argo CD application.",
+      "command": "argocd app history {{.app}}",
+      "input_schema": {
+        "app": {
+          "type": "string",
+          "description": "Argo CD application name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_argo_diff",
+      "description": "Show the diff between live state and desired state for an Argo CD application.",
+      "command": "argocd app diff {{.app}}",
+      "input_schema": {
+        "app": {
+          "type": "string",
+          "description": "Argo CD application name",
+          "required": true
+        }
+      }
+    }
+  ]
+}

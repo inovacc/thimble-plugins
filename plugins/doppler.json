@@ -1,0 +1,21 @@
+{
+  "name": "doppler",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_doppler_secrets",
+      "description": "List all secrets in the current Doppler project and config",
+      "command": "doppler secrets"
+    },
+    {
+      "name": "ctx_doppler_configs",
+      "description": "List all configs for the current Doppler project",
+      "command": "doppler configs"
+    },
+    {
+      "name": "ctx_doppler_logs",
+      "description": "Show recent Doppler activity logs",
+      "command": "doppler activity"
+    }
+  ]
+}

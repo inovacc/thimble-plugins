@@ -1,0 +1,79 @@
+{
+  "name": "kafka",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_kafka_topics",
+      "description": "List all Kafka topics on the cluster",
+      "command": "kafka-topics.sh --bootstrap-server {{bootstrap_server}} --list",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "bootstrap_server": {
+            "type": "string",
+            "description": "Kafka bootstrap server address (e.g. localhost:9092)"
+          }
+        },
+        "required": ["bootstrap_server"]
+      }
+    },
+    {
+      "name": "ctx_kafka_consume",
+      "description": "Consume messages from a Kafka topic",
+      "command": "kafka-console-consumer.sh --bootstrap-server {{bootstrap_server}} --topic {{topic}} --max-messages {{max_messages}} --from-beginning",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "bootstrap_server": {
+            "type": "string",
+            "description": "Kafka bootstrap server address (e.g. localhost:9092)"
+          },
+          "topic": {
+            "type": "string",
+            "description": "The topic to consume from"
+          },
+          "max_messages": {
+            "type": "integer",
+            "description": "Maximum number of messages to consume",
+            "default": 10
+          }
+        },
+        "required": ["bootstrap_server", "topic"]
+      }
+    },
+    {
+      "name": "ctx_kafka_groups",
+      "description": "List all consumer groups on the cluster",
+      "command": "kafka-consumer-groups.sh --bootstrap-server {{bootstrap_server}} --list",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "bootstrap_server": {
+            "type": "string",
+            "description": "Kafka bootstrap server address (e.g. localhost:9092)"
+          }
+        },
+        "required": ["bootstrap_server"]
+      }
+    },
+    {
+      "name": "ctx_kafka_describe",
+      "description": "Describe a Kafka topic showing partitions, replicas, and ISR",
+      "command": "kafka-topics.sh --bootstrap-server {{bootstrap_server}} --describe --topic {{topic}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "bootstrap_server": {
+            "type": "string",
+            "description": "Kafka bootstrap server address (e.g. localhost:9092)"
+          },
+          "topic": {
+            "type": "string",
+            "description": "The topic to describe"
+          }
+        },
+        "required": ["bootstrap_server", "topic"]
+      }
+    }
+  ]
+}

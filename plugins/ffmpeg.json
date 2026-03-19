@@ -1,0 +1,63 @@
+{
+  "name": "ffmpeg",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_ffmpeg_info",
+      "description": "Show detailed media file information using ffprobe",
+      "command": "ffprobe -v quiet -print_format json -show_format -show_streams {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the media file to inspect"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_ffmpeg_convert",
+      "description": "Convert a media file to a different format",
+      "command": "ffmpeg -i {{input}} -f {{format}} {{output}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Path to the input media file"
+          },
+          "output": {
+            "type": "string",
+            "description": "Path for the output file"
+          },
+          "format": {
+            "type": "string",
+            "description": "Output format (e.g. mp4, mp3, wav, webm)"
+          }
+        },
+        "required": ["input", "output", "format"]
+      }
+    },
+    {
+      "name": "ctx_ffmpeg_screenshot",
+      "description": "Extract a screenshot from a video at a specific timestamp",
+      "command": "ffmpeg -i {{input}} -ss {{time}} -frames:v 1 -q:v 2 screenshot.jpg",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Path to the input video file"
+          },
+          "time": {
+            "type": "string",
+            "description": "Timestamp to capture (e.g. 00:01:30 or 90)"
+          }
+        },
+        "required": ["input", "time"]
+      }
+    }
+  ]
+}

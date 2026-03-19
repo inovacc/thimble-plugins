@@ -1,0 +1,26 @@
+{
+  "name": "gradle",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_gradle_tasks",
+      "description": "List all available Gradle tasks",
+      "command": "gradle tasks"
+    },
+    {
+      "name": "ctx_gradle_build",
+      "description": "Build the Gradle project",
+      "command": "gradle build"
+    },
+    {
+      "name": "ctx_gradle_test",
+      "description": "Run Gradle unit tests",
+      "command": "gradle test"
+    },
+    {
+      "name": "ctx_gradle_deps",
+      "description": "Display the dependency tree for the Gradle project",
+      "command": "gradle dependencies"
+    }
+  ]
+}

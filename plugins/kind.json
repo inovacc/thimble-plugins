@@ -1,0 +1,35 @@
+{
+  "name": "kind",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_kind_clusters",
+      "description": "List all local KinD (Kubernetes in Docker) clusters.",
+      "command": "kind get clusters"
+    },
+    {
+      "name": "ctx_kind_create",
+      "description": "Create a new KinD cluster with the given name.",
+      "command": "kind create cluster --name {{.name}}",
+      "input_schema": {
+        "name": {
+          "type": "string",
+          "description": "Name for the new KinD cluster",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_kind_logs",
+      "description": "Export logs from a KinD cluster to stdout.",
+      "command": "kind export logs --name {{.name}} -",
+      "input_schema": {
+        "name": {
+          "type": "string",
+          "description": "KinD cluster name",
+          "required": true
+        }
+      }
+    }
+  ]
+}

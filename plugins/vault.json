@@ -1,0 +1,41 @@
+{
+  "name": "vault",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_vault_read",
+      "description": "Read a secret from HashiCorp Vault KV store",
+      "command": "vault kv get {{path}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Vault secret path (e.g. secret/data/myapp)"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "ctx_vault_list",
+      "description": "List secrets at a given Vault KV path",
+      "command": "vault kv list {{path}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Vault path to list (e.g. secret/)"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "ctx_vault_status",
+      "description": "Show Vault server seal status and cluster information",
+      "command": "vault status"
+    }
+  ]
+}

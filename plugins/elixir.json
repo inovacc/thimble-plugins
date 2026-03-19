@@ -1,0 +1,21 @@
+{
+  "name": "elixir",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_mix_test",
+      "description": "Run Elixir mix tests",
+      "command": "mix test"
+    },
+    {
+      "name": "ctx_mix_deps",
+      "description": "Display the Elixir dependency tree",
+      "command": "mix deps.tree"
+    },
+    {
+      "name": "ctx_mix_format",
+      "description": "Check if Elixir code is properly formatted",
+      "command": "mix format --check-formatted"
+    }
+  ]
+}

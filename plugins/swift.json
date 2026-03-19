@@ -1,0 +1,21 @@
+{
+  "name": "swift",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_swift_build",
+      "description": "Build the Swift package",
+      "command": "swift build"
+    },
+    {
+      "name": "ctx_swift_test",
+      "description": "Run Swift package tests",
+      "command": "swift test"
+    },
+    {
+      "name": "ctx_swift_package",
+      "description": "Describe the Swift package structure and dependencies",
+      "command": "swift package describe"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "imagemagick",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_im_identify",
+      "description": "Show image metadata and properties",
+      "command": "identify {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the image file"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_im_convert",
+      "description": "Convert an image to a different format",
+      "command": "convert {{input}} {{output}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Path to the input image"
+          },
+          "output": {
+            "type": "string",
+            "description": "Path for the output image (format determined by extension)"
+          }
+        },
+        "required": ["input", "output"]
+      }
+    },
+    {
+      "name": "ctx_im_resize",
+      "description": "Resize an image to a specified dimension",
+      "command": "convert {{input}} -resize {{size}} {{output}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "input": {
+            "type": "string",
+            "description": "Path to the input image"
+          },
+          "output": {
+            "type": "string",
+            "description": "Path for the resized output image"
+          },
+          "size": {
+            "type": "string",
+            "description": "Target size (e.g. 800x600, 50%, 200x)"
+          }
+        },
+        "required": ["input", "output", "size"]
+      }
+    }
+  ]
+}

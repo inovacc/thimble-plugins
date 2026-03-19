@@ -1,0 +1,41 @@
+{
+  "name": "cron",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_cron_list",
+      "description": "List the current user's crontab entries",
+      "command": "crontab -l"
+    },
+    {
+      "name": "ctx_cron_next",
+      "description": "Show a human-readable explanation of when a cron job will next run",
+      "command": "echo '{{expression}}' | crontab -l 2>/dev/null; echo 'Expression: {{expression}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "Cron expression to explain (e.g. '0 2 * * *')"
+          }
+        },
+        "required": ["expression"]
+      }
+    },
+    {
+      "name": "ctx_cron_explain",
+      "description": "Explain a cron expression in human-readable format",
+      "command": "echo 'Cron expression: {{expression}}' && echo '{{expression}}' | awk '{printf \"Minute: %s\\nHour: %s\\nDay of Month: %s\\nMonth: %s\\nDay of Week: %s\\n\", $1, $2, $3, $4, $5}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "Cron expression to explain (e.g. '*/5 * * * *')"
+          }
+        },
+        "required": ["expression"]
+      }
+    }
+  ]
+}

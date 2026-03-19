@@ -1,0 +1,35 @@
+{
+  "name": "istio",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_istio_proxy",
+      "description": "Show synchronization status of all Envoy proxies in the mesh.",
+      "command": "istioctl proxy-status"
+    },
+    {
+      "name": "ctx_istio_routes",
+      "description": "Show route configuration for an Envoy sidecar proxy.",
+      "command": "istioctl proxy-config routes {{.pod}}",
+      "input_schema": {
+        "pod": {
+          "type": "string",
+          "description": "Pod name (e.g. productpage-v1-abc123)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_istio_metrics",
+      "description": "Show key metrics for a service in the Istio mesh.",
+      "command": "istioctl experimental metrics {{.service}}",
+      "input_schema": {
+        "service": {
+          "type": "string",
+          "description": "Kubernetes service name",
+          "required": true
+        }
+      }
+    }
+  ]
+}

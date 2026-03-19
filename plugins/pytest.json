@@ -1,0 +1,31 @@
+{
+  "name": "pytest",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_pytest_run",
+      "description": "Run pytest with verbose output on a given path",
+      "command": "pytest -v {{path}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Test file or directory path (e.g. tests/ or tests/test_auth.py)"
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "ctx_pytest_coverage",
+      "description": "Run pytest with coverage reporting",
+      "command": "pytest --cov"
+    },
+    {
+      "name": "ctx_pytest_markers",
+      "description": "List all registered pytest markers",
+      "command": "pytest --markers"
+    }
+  ]
+}

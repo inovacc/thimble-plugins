@@ -1,0 +1,53 @@
+{
+  "name": "ssh",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_ssh_hosts",
+      "description": "List configured SSH hosts from ~/.ssh/config",
+      "command": "cat ~/.ssh/config"
+    },
+    {
+      "name": "ctx_ssh_run",
+      "description": "Run a command on a remote host via SSH",
+      "command": "ssh {{host}} '{{command}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "SSH host name or alias from config"
+          },
+          "command": {
+            "type": "string",
+            "description": "Command to execute on the remote host"
+          }
+        },
+        "required": ["host", "command"]
+      }
+    },
+    {
+      "name": "ctx_ssh_tunnel",
+      "description": "Create an SSH local port forward tunnel",
+      "command": "ssh -L {{local_port}}:localhost:{{remote_port}} {{host}} -N",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "SSH host name or alias"
+          },
+          "local_port": {
+            "type": "string",
+            "description": "Local port to bind (e.g. 8080)"
+          },
+          "remote_port": {
+            "type": "string",
+            "description": "Remote port to forward to (e.g. 5432)"
+          }
+        },
+        "required": ["host", "local_port", "remote_port"]
+      }
+    }
+  ]
+}

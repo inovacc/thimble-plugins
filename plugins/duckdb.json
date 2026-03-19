@@ -1,0 +1,63 @@
+{
+  "name": "duckdb",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_duckdb_query",
+      "description": "Execute a SQL query against a DuckDB database",
+      "command": "duckdb '{{database}}' -c '{{query}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the DuckDB database file"
+          },
+          "query": {
+            "type": "string",
+            "description": "SQL query to execute"
+          }
+        },
+        "required": ["database", "query"]
+      }
+    },
+    {
+      "name": "ctx_duckdb_tables",
+      "description": "List all tables in a DuckDB database",
+      "command": "duckdb '{{database}}' -c 'SHOW TABLES'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the DuckDB database file"
+          }
+        },
+        "required": ["database"]
+      }
+    },
+    {
+      "name": "ctx_duckdb_import",
+      "description": "Import a CSV file into a DuckDB table",
+      "command": "duckdb '{{database}}' -c \"CREATE TABLE IF NOT EXISTS {{table}} AS SELECT * FROM read_csv_auto('{{file}}')\"",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the DuckDB database file"
+          },
+          "file": {
+            "type": "string",
+            "description": "Path to the CSV file to import"
+          },
+          "table": {
+            "type": "string",
+            "description": "Target table name"
+          }
+        },
+        "required": ["database", "file", "table"]
+      }
+    }
+  ]
+}

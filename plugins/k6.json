@@ -1,0 +1,41 @@
+{
+  "name": "k6",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_k6_run",
+      "description": "Run a k6 load test script locally",
+      "command": "k6 run {{script}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "script": {
+            "type": "string",
+            "description": "Path to the k6 test script (e.g. load-test.js)"
+          }
+        },
+        "required": ["script"]
+      }
+    },
+    {
+      "name": "ctx_k6_cloud",
+      "description": "Run a k6 load test on Grafana Cloud k6",
+      "command": "k6 cloud {{script}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "script": {
+            "type": "string",
+            "description": "Path to the k6 test script to run in the cloud"
+          }
+        },
+        "required": ["script"]
+      }
+    },
+    {
+      "name": "ctx_k6_summary",
+      "description": "Run a k6 script and show detailed summary trend statistics",
+      "command": "k6 run --summary-trend-stats"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "jq",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_jq_filter",
+      "description": "Apply a jq filter expression to a JSON file",
+      "command": "jq '{{filter}}' '{{file}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the JSON file"
+          },
+          "filter": {
+            "type": "string",
+            "description": "jq filter expression (e.g. '.data[] | .name')"
+          }
+        },
+        "required": ["file", "filter"]
+      }
+    },
+    {
+      "name": "ctx_jq_keys",
+      "description": "List all top-level keys in a JSON file",
+      "command": "jq 'keys' '{{file}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the JSON file"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_jq_flatten",
+      "description": "Flatten a nested JSON structure into key-value pairs",
+      "command": "jq '[leaf_paths as $p | {\"key\": ($p | join(\".\")), \"value\": getpath($p)}]' '{{file}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the JSON file"
+          }
+        },
+        "required": ["file"]
+      }
+    }
+  ]
+}

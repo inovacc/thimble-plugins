@@ -1,0 +1,21 @@
+{
+  "name": "caddy",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_caddy_config",
+      "description": "Adapt and validate the Caddyfile configuration",
+      "command": "caddy adapt --config Caddyfile 2>&1"
+    },
+    {
+      "name": "ctx_caddy_reverse_proxies",
+      "description": "List configured reverse proxy upstreams from the Caddy config",
+      "command": "caddy reverse-proxy --list 2>&1"
+    },
+    {
+      "name": "ctx_caddy_certs",
+      "description": "Show managed TLS certificates and their status",
+      "command": "caddy certificates 2>&1"
+    }
+  ]
+}

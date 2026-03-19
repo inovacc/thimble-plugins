@@ -1,0 +1,21 @@
+{
+  "name": "rabbitmq",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_rabbitmq_queues",
+      "description": "List all RabbitMQ queues with message counts",
+      "command": "rabbitmqctl list_queues name messages consumers"
+    },
+    {
+      "name": "ctx_rabbitmq_exchanges",
+      "description": "List all RabbitMQ exchanges with their types",
+      "command": "rabbitmqctl list_exchanges name type"
+    },
+    {
+      "name": "ctx_rabbitmq_connections",
+      "description": "List all active RabbitMQ connections",
+      "command": "rabbitmqctl list_connections user peer_host peer_port state"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "name": "podman",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_podman_ps",
+      "description": "List all Podman containers including stopped ones.",
+      "command": "podman ps -a --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}'"
+    },
+    {
+      "name": "ctx_podman_logs",
+      "description": "Show logs from a Podman container.",
+      "command": "podman logs --tail 100 {{.container}}",
+      "input_schema": {
+        "container": {
+          "type": "string",
+          "description": "container name or ID",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_podman_images",
+      "description": "List Podman images with repository, tag, and size.",
+      "command": "podman images --format 'table {{.Repository}}\t{{.Tag}}\t{{.Size}}\t{{.Created}}'"
+    },
+    {
+      "name": "ctx_podman_inspect",
+      "description": "Show detailed information about a Podman container.",
+      "command": "podman inspect {{.container}} | jq '.[0] | {Id: .Id, Name: .Name, State: .State.Status, Image: .ImageName, Ports: .NetworkSettings.Ports, Mounts: [.Mounts[].Destination]}'",
+      "input_schema": {
+        "container": {
+          "type": "string",
+          "description": "container name or ID",
+          "required": true
+        }
+      }
+    }
+  ]
+}

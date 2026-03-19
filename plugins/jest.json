@@ -1,0 +1,31 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_jest_run",
+      "description": "Run Jest tests matching a pattern",
+      "command": "npx jest {{pattern}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "string",
+            "description": "Test file or name pattern to match (e.g. 'auth' or 'src/utils')"
+          }
+        },
+        "required": ["pattern"]
+      }
+    },
+    {
+      "name": "ctx_jest_coverage",
+      "description": "Run all Jest tests with code coverage report",
+      "command": "npx jest --coverage"
+    },
+    {
+      "name": "ctx_jest_watch",
+      "description": "Run Jest in watch mode with verbose output",
+      "command": "npx jest --watchAll --verbose"
+    }
+  ]
+}

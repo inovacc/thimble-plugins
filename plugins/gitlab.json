@@ -1,0 +1,26 @@
+{
+  "name": "gitlab",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_gitlab_pipelines",
+      "description": "List recent CI/CD pipelines for the current GitLab project.",
+      "command": "glab ci list --per-page 20"
+    },
+    {
+      "name": "ctx_gitlab_mrs",
+      "description": "List open merge requests for the current GitLab project.",
+      "command": "glab mr list --state opened --per-page 20"
+    },
+    {
+      "name": "ctx_gitlab_issues",
+      "description": "List open issues for the current GitLab project.",
+      "command": "glab issue list --state opened --per-page 20"
+    },
+    {
+      "name": "ctx_gitlab_registry",
+      "description": "List container registry repositories for the current GitLab project.",
+      "command": "glab registry list"
+    }
+  ]
+}

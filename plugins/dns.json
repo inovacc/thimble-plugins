@@ -1,0 +1,66 @@
+{
+  "name": "dns",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_dns_lookup",
+      "description": "Perform a DNS lookup for a domain",
+      "command": "dig +short {{domain}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The domain name to resolve"
+          }
+        },
+        "required": ["domain"]
+      }
+    },
+    {
+      "name": "ctx_dns_reverse",
+      "description": "Perform a reverse DNS lookup for an IP address",
+      "command": "dig -x {{ip}} +short",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "ip": {
+            "type": "string",
+            "description": "The IP address for reverse lookup"
+          }
+        },
+        "required": ["ip"]
+      }
+    },
+    {
+      "name": "ctx_dns_mx",
+      "description": "Query MX records for a domain",
+      "command": "dig MX {{domain}} +short",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The domain name to query MX records for"
+          }
+        },
+        "required": ["domain"]
+      }
+    },
+    {
+      "name": "ctx_dns_trace",
+      "description": "Trace the full DNS resolution path for a domain",
+      "command": "dig +trace {{domain}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The domain name to trace"
+          }
+        },
+        "required": ["domain"]
+      }
+    }
+  ]
+}

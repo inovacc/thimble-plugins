@@ -1,0 +1,40 @@
+{
+  "name": "circleci",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_circleci_pipelines",
+      "description": "List recent CircleCI pipelines for the current project.",
+      "command": "circleci pipeline list --org-slug gh/$(git remote get-url origin | sed 's|.*github.com[:/]||;s|.git$||;s|/.*||')"
+    },
+    {
+      "name": "ctx_circleci_jobs",
+      "description": "List jobs for a specific CircleCI workflow.",
+      "command": "circleci workflow jobs {{.workflow_id}}",
+      "input_schema": {
+        "workflow_id": {
+          "type": "string",
+          "description": "CircleCI workflow ID",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_circleci_artifacts",
+      "description": "List build artifacts for a CircleCI project build.",
+      "command": "curl -s https://circleci.com/api/v1.1/project/github/{{.project}}/{{.build_num}}/artifacts | jq '.[].url'",
+      "input_schema": {
+        "project": {
+          "type": "string",
+          "description": "GitHub project in owner/repo format",
+          "required": true
+        },
+        "build_num": {
+          "type": "string",
+          "description": "CircleCI build number",
+          "required": true
+        }
+      }
+    }
+  ]
+}

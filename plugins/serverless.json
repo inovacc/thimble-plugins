@@ -1,0 +1,51 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_sls_info",
+      "description": "Show Serverless Framework service information including endpoints and functions",
+      "command": "serverless info"
+    },
+    {
+      "name": "ctx_sls_logs",
+      "description": "Fetch logs for a specific serverless function",
+      "command": "serverless logs --function '{{function}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string",
+            "description": "Name of the function to fetch logs for"
+          }
+        },
+        "required": ["function"]
+      }
+    },
+    {
+      "name": "ctx_sls_invoke",
+      "description": "Invoke a serverless function with optional JSON data",
+      "command": "serverless invoke --function '{{function}}' --data '{{data}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "function": {
+            "type": "string",
+            "description": "Name of the function to invoke"
+          },
+          "data": {
+            "type": "string",
+            "description": "JSON payload to send to the function",
+            "default": "{}"
+          }
+        },
+        "required": ["function"]
+      }
+    },
+    {
+      "name": "ctx_sls_deploy_list",
+      "description": "List all deployments for the current serverless service",
+      "command": "serverless deploy list"
+    }
+  ]
+}

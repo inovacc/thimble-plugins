@@ -1,0 +1,51 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_playwright_test",
+      "description": "Run Playwright end-to-end tests",
+      "command": "npx playwright test {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Test file to run (e.g. tests/login.spec.ts)"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_playwright_codegen",
+      "description": "Launch Playwright codegen to record user interactions",
+      "command": "npx playwright codegen {{url}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "URL to open for recording (e.g. http://localhost:3000)"
+          }
+        },
+        "required": ["url"]
+      }
+    },
+    {
+      "name": "ctx_playwright_trace",
+      "description": "Open and display a Playwright trace file",
+      "command": "npx playwright show-trace {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the trace zip file"
+          }
+        },
+        "required": ["file"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "dotnet",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_dotnet_build",
+      "description": "Build the .NET solution or project",
+      "command": "dotnet build"
+    },
+    {
+      "name": "ctx_dotnet_test",
+      "description": "Run .NET unit tests",
+      "command": "dotnet test"
+    },
+    {
+      "name": "ctx_dotnet_publish",
+      "description": "Publish the .NET application for deployment",
+      "command": "dotnet publish"
+    },
+    {
+      "name": "ctx_dotnet_nuget",
+      "description": "List outdated NuGet packages across the solution",
+      "command": "dotnet list package --outdated"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "fly",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_fly_apps",
+      "description": "List all Fly.io applications in the current organization",
+      "command": "fly apps list"
+    },
+    {
+      "name": "ctx_fly_status",
+      "description": "Show status and instance details for a Fly.io application",
+      "command": "fly status --app '{{app}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "type": "string",
+            "description": "Fly.io application name"
+          }
+        },
+        "required": ["app"]
+      }
+    },
+    {
+      "name": "ctx_fly_logs",
+      "description": "Stream recent logs for a Fly.io application",
+      "command": "fly logs --app '{{app}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "type": "string",
+            "description": "Fly.io application name"
+          }
+        },
+        "required": ["app"]
+      }
+    },
+    {
+      "name": "ctx_fly_scale",
+      "description": "Show current scaling configuration for a Fly.io application",
+      "command": "fly scale show --app '{{app}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "app": {
+            "type": "string",
+            "description": "Fly.io application name"
+          }
+        },
+        "required": ["app"]
+      }
+    }
+  ]
+}

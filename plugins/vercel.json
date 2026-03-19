@@ -1,0 +1,36 @@
+{
+  "name": "vercel",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_vercel_ls",
+      "description": "List all Vercel deployments for the current project",
+      "command": "vercel ls"
+    },
+    {
+      "name": "ctx_vercel_logs",
+      "description": "Show logs for a specific Vercel deployment",
+      "command": "vercel logs '{{deployment}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "deployment": {
+            "type": "string",
+            "description": "Deployment URL or ID"
+          }
+        },
+        "required": ["deployment"]
+      }
+    },
+    {
+      "name": "ctx_vercel_env",
+      "description": "List all environment variables for the current Vercel project",
+      "command": "vercel env ls"
+    },
+    {
+      "name": "ctx_vercel_domains",
+      "description": "List all domains configured for the current Vercel project",
+      "command": "vercel domains ls"
+    }
+  ]
+}

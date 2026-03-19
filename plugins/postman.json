@@ -1,0 +1,40 @@
+{
+  "name": "postman",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_newman_run",
+      "description": "Run a Postman collection using Newman",
+      "command": "newman run {{collection}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "string",
+            "description": "Path to the Postman collection JSON file"
+          }
+        },
+        "required": ["collection"]
+      }
+    },
+    {
+      "name": "ctx_newman_collection",
+      "description": "Run a Postman collection with an environment file",
+      "command": "newman run {{collection}} -e {{environment}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "collection": {
+            "type": "string",
+            "description": "Path to the Postman collection JSON file"
+          },
+          "environment": {
+            "type": "string",
+            "description": "Path to the Postman environment JSON file"
+          }
+        },
+        "required": ["collection", "environment"]
+      }
+    }
+  ]
+}

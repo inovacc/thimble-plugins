@@ -1,0 +1,41 @@
+{
+  "name": "sops",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_sops_decrypt",
+      "description": "Decrypt a SOPS-encrypted file and display its contents",
+      "command": "sops -d {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the SOPS-encrypted file"
+          }
+        },
+        "required": ["file"]
+      }
+    },
+    {
+      "name": "ctx_sops_edit_rules",
+      "description": "Display the SOPS creation rules configuration",
+      "command": "cat .sops.yaml"
+    },
+    {
+      "name": "ctx_sops_rotate",
+      "description": "Rotate data encryption keys for a SOPS-encrypted file",
+      "command": "sops rotate {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to the SOPS-encrypted file to rotate keys for"
+          }
+        },
+        "required": ["file"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "flutter",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_flutter_doctor",
+      "description": "Run Flutter doctor to check environment setup",
+      "command": "flutter doctor"
+    },
+    {
+      "name": "ctx_flutter_test",
+      "description": "Run Flutter unit and widget tests",
+      "command": "flutter test"
+    },
+    {
+      "name": "ctx_flutter_analyze",
+      "description": "Run Dart static analysis on the Flutter project",
+      "command": "flutter analyze"
+    }
+  ]
+}

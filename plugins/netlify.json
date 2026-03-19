@@ -1,0 +1,21 @@
+{
+  "name": "netlify",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_netlify_sites",
+      "description": "List all Netlify sites linked to the current account",
+      "command": "netlify sites:list"
+    },
+    {
+      "name": "ctx_netlify_deploys",
+      "description": "List recent Netlify deployments for the current site",
+      "command": "netlify deploy --list"
+    },
+    {
+      "name": "ctx_netlify_logs",
+      "description": "Show build and function logs for the current Netlify site",
+      "command": "netlify logs"
+    }
+  ]
+}

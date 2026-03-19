@@ -1,0 +1,69 @@
+{
+  "name": "jenkins",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_jenkins_jobs",
+      "description": "List all Jenkins jobs with their current status.",
+      "command": "curl -s {{.url}}/api/json?tree=jobs[name,color] | jq '.jobs[] | {name, status: .color}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jenkins server URL (e.g. http://localhost:8080)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_jenkins_build",
+      "description": "Trigger a new build for a Jenkins job.",
+      "command": "curl -s -X POST {{.url}}/job/{{.job}}/build",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jenkins server URL (e.g. http://localhost:8080)",
+          "required": true
+        },
+        "job": {
+          "type": "string",
+          "description": "Jenkins job name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_jenkins_logs",
+      "description": "Show console output for a specific Jenkins build.",
+      "command": "curl -s {{.url}}/job/{{.job}}/{{.build}}/consoleText",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jenkins server URL (e.g. http://localhost:8080)",
+          "required": true
+        },
+        "job": {
+          "type": "string",
+          "description": "Jenkins job name",
+          "required": true
+        },
+        "build": {
+          "type": "string",
+          "description": "Build number (e.g. 42 or lastBuild)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_jenkins_queue",
+      "description": "Show the current Jenkins build queue.",
+      "command": "curl -s {{.url}}/queue/api/json?tree=items[task[name],why,inQueueSince] | jq '.items[] | {job: .task.name, why, queued_since: .inQueueSince}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jenkins server URL (e.g. http://localhost:8080)",
+          "required": true
+        }
+      }
+    }
+  ]
+}

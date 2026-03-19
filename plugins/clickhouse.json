@@ -1,0 +1,31 @@
+{
+  "name": "clickhouse",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_ch_query",
+      "description": "Execute a ClickHouse SQL query",
+      "command": "clickhouse-client --query '{{query}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "SQL query to execute"
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "ctx_ch_tables",
+      "description": "List all tables in the current ClickHouse database",
+      "command": "clickhouse-client --query 'SHOW TABLES'"
+    },
+    {
+      "name": "ctx_ch_processes",
+      "description": "Show currently running ClickHouse queries and processes",
+      "command": "clickhouse-client --query 'SHOW PROCESSLIST'"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "elasticsearch",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_es_indices",
+      "description": "List all Elasticsearch indices with health, status, and document count",
+      "command": "curl -s '{{url}}/_cat/indices?v'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Elasticsearch base URL",
+            "default": "http://localhost:9200"
+          }
+        }
+      }
+    },
+    {
+      "name": "ctx_es_search",
+      "description": "Search an Elasticsearch index with a query string",
+      "command": "curl -s '{{url}}/{{index}}/_search?q={{query}}&pretty'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Elasticsearch base URL",
+            "default": "http://localhost:9200"
+          },
+          "index": {
+            "type": "string",
+            "description": "Index name to search"
+          },
+          "query": {
+            "type": "string",
+            "description": "Lucene query string"
+          }
+        },
+        "required": ["index", "query"]
+      }
+    },
+    {
+      "name": "ctx_es_health",
+      "description": "Show Elasticsearch cluster health status",
+      "command": "curl -s '{{url}}/_cluster/health?pretty'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Elasticsearch base URL",
+            "default": "http://localhost:9200"
+          }
+        }
+      }
+    },
+    {
+      "name": "ctx_es_stats",
+      "description": "Show Elasticsearch index statistics including size and document counts",
+      "command": "curl -s '{{url}}/_stats?pretty'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "Elasticsearch base URL",
+            "default": "http://localhost:9200"
+          }
+        }
+      }
+    }
+  ]
+}

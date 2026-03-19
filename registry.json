@@ -1,199 +1,528 @@
 {
   "plugins": [
     {
-      "name": "docker",
-      "description": "Docker container management — ps, logs, images, stats",
-      "version": "1.0.0",
-      "file": "plugins/docker.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "kubernetes",
-      "description": "Kubernetes cluster operations — pods, logs, describe, events",
-      "version": "1.0.0",
-      "file": "plugins/kubernetes.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "terraform",
-      "description": "Terraform infrastructure — plan, state, output, validate",
-      "version": "1.0.0",
-      "file": "plugins/terraform.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "aws",
-      "description": "AWS cloud operations — EC2, S3, Lambda, CloudWatch",
-      "version": "1.0.0",
-      "file": "plugins/aws.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "gcloud",
-      "description": "Google Cloud operations — compute, storage, functions, logs",
-      "version": "1.0.0",
-      "file": "plugins/gcloud.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "azure",
-      "description": "Azure cloud operations — VMs, storage, functions, monitor",
-      "version": "1.0.0",
-      "file": "plugins/azure.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "helm",
-      "description": "Helm chart management — list, status, values, history",
-      "version": "1.0.0",
-      "file": "plugins/helm.json",
-      "author": "inovacc"
-    },
-    {
       "name": "ansible",
-      "description": "Ansible automation — playbook run, inventory, vault, galaxy",
+      "description": "Ansible automation \u00e2\u20ac\u201d playbook run, inventory, vault, galaxy",
       "version": "1.0.0",
       "file": "plugins/ansible.json",
       "author": "inovacc"
     },
     {
-      "name": "postgres",
-      "description": "PostgreSQL database operations — query, tables, connections, size",
+      "name": "argocd",
+      "description": "ArgoCD GitOps \u2014 apps, sync, history, diff",
       "version": "1.0.0",
-      "file": "plugins/postgres.json",
+      "file": "plugins/argocd.json",
       "author": "inovacc"
     },
     {
-      "name": "mysql",
-      "description": "MySQL database operations — query, tables, processes, status",
+      "name": "aws",
+      "description": "AWS cloud operations \u00e2\u20ac\u201d EC2, S3, Lambda, CloudWatch",
       "version": "1.0.0",
-      "file": "plugins/mysql.json",
+      "file": "plugins/aws.json",
       "author": "inovacc"
     },
     {
-      "name": "redis",
-      "description": "Redis operations — info, keys, memory, slowlog",
+      "name": "azure",
+      "description": "Azure cloud operations \u00e2\u20ac\u201d VMs, storage, functions, monitor",
       "version": "1.0.0",
-      "file": "plugins/redis.json",
+      "file": "plugins/azure.json",
       "author": "inovacc"
     },
     {
-      "name": "mongodb",
-      "description": "MongoDB operations — stats, collections, queries, indexes",
+      "name": "caddy",
+      "description": "Caddy \u2014 config, reverse proxies, certificates",
       "version": "1.0.0",
-      "file": "plugins/mongodb.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "sqlite",
-      "description": "SQLite database operations — query, schema, tables, integrity",
-      "version": "1.0.0",
-      "file": "plugins/sqlite.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "sysmon",
-      "description": "System monitoring — CPU, memory, disk, network, processes",
-      "version": "1.0.0",
-      "file": "plugins/sysmon.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "logs",
-      "description": "Log analysis — tail, search, journald, structured log parsing",
-      "version": "1.0.0",
-      "file": "plugins/logs.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "prometheus",
-      "description": "Prometheus monitoring — query, targets, alerts, rules",
-      "version": "1.0.0",
-      "file": "plugins/prometheus.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "grafana",
-      "description": "Grafana dashboards — list, search, annotations, datasources",
-      "version": "1.0.0",
-      "file": "plugins/grafana.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "npm",
-      "description": "npm package management — list, outdated, audit, scripts",
-      "version": "1.0.0",
-      "file": "plugins/npm.json",
-      "author": "inovacc"
-    },
-    {
-      "name": "pip",
-      "description": "Python pip package management — list, outdated, check, show",
-      "version": "1.0.0",
-      "file": "plugins/pip.json",
+      "file": "plugins/caddy.json",
       "author": "inovacc"
     },
     {
       "name": "cargo",
-      "description": "Rust Cargo operations — build, test, clippy, outdated",
+      "description": "Rust Cargo operations \u00e2\u20ac\u201d build, test, clippy, outdated",
       "version": "1.0.0",
       "file": "plugins/cargo.json",
       "author": "inovacc"
     },
     {
-      "name": "make",
-      "description": "Make build automation — targets, dry-run, variables",
+      "name": "circleci",
+      "description": "CircleCI \u2014 pipelines, jobs, artifacts",
       "version": "1.0.0",
-      "file": "plugins/make.json",
+      "file": "plugins/circleci.json",
       "author": "inovacc"
     },
     {
-      "name": "openapi",
-      "description": "OpenAPI spec operations — validate, lint, preview, generate",
+      "name": "clickhouse",
+      "description": "ClickHouse \u2014 query, tables, processes",
       "version": "1.0.0",
-      "file": "plugins/openapi.json",
+      "file": "plugins/clickhouse.json",
       "author": "inovacc"
     },
     {
-      "name": "trivy",
-      "description": "Trivy security scanning — filesystem, container image, IaC configs",
+      "name": "compose",
+      "description": "Docker Compose \u2014 services, logs, config, top",
       "version": "1.0.0",
-      "file": "plugins/trivy.json",
+      "file": "plugins/compose.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "cron",
+      "description": "Cron \u2014 list jobs, next run, explain expression",
+      "version": "1.0.0",
+      "file": "plugins/cron.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "csv",
+      "description": "CSV data \u2014 query, head, stats, schema detection",
+      "version": "1.0.0",
+      "file": "plugins/csv.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "curl",
+      "description": "HTTP client \u2014 GET, POST, headers, timing",
+      "version": "1.0.0",
+      "file": "plugins/curl.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "dns",
+      "description": "DNS lookup \u2014 dig, reverse, MX, trace",
+      "version": "1.0.0",
+      "file": "plugins/dns.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "docker",
+      "description": "Docker container management \u00e2\u20ac\u201d ps, logs, images, stats",
+      "version": "1.0.0",
+      "file": "plugins/docker.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "doppler",
+      "description": "Doppler secrets \u2014 secrets, configs, activity logs",
+      "version": "1.0.0",
+      "file": "plugins/doppler.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "dotnet",
+      "description": ".NET \u2014 build, test, publish, NuGet outdated",
+      "version": "1.0.0",
+      "file": "plugins/dotnet.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "duckdb",
+      "description": "DuckDB \u2014 query, tables, CSV import",
+      "version": "1.0.0",
+      "file": "plugins/duckdb.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "elasticsearch",
+      "description": "Elasticsearch \u2014 indices, search, health, stats",
+      "version": "1.0.0",
+      "file": "plugins/elasticsearch.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "elixir",
+      "description": "Elixir Mix \u2014 test, deps tree, format check",
+      "version": "1.0.0",
+      "file": "plugins/elixir.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "ffmpeg",
+      "description": "FFmpeg \u2014 probe info, convert, screenshot",
+      "version": "1.0.0",
+      "file": "plugins/ffmpeg.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "flutter",
+      "description": "Flutter \u2014 doctor, test, analyze",
+      "version": "1.0.0",
+      "file": "plugins/flutter.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "fly",
+      "description": "Fly.io \u2014 apps, status, logs, scale",
+      "version": "1.0.0",
+      "file": "plugins/fly.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "gcloud",
+      "description": "Google Cloud operations \u00e2\u20ac\u201d compute, storage, functions, logs",
+      "version": "1.0.0",
+      "file": "plugins/gcloud.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "gitlab",
+      "description": "GitLab \u2014 pipelines, merge requests, issues, registry",
+      "version": "1.0.0",
+      "file": "plugins/gitlab.json",
       "author": "inovacc"
     },
     {
       "name": "gitleaks",
-      "description": "Gitleaks secret detection — repo scan, staged changes protection",
+      "description": "Gitleaks secret detection \u00e2\u20ac\u201d repo scan, staged changes protection",
       "version": "1.0.0",
       "file": "plugins/gitleaks.json",
       "author": "inovacc"
     },
     {
-      "name": "nmap",
-      "description": "Nmap network scanning — port scan, quick scan, service detection",
+      "name": "gradle",
+      "description": "Gradle \u2014 tasks, build, test, dependencies",
       "version": "1.0.0",
-      "file": "plugins/nmap.json",
+      "file": "plugins/gradle.json",
       "author": "inovacc"
     },
     {
-      "name": "slack",
-      "description": "Slack integration — send messages, list channels, channel history",
+      "name": "grafana",
+      "description": "Grafana dashboards \u00e2\u20ac\u201d list, search, annotations, datasources",
       "version": "1.0.0",
-      "file": "plugins/slack.json",
+      "file": "plugins/grafana.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "helm",
+      "description": "Helm chart management \u00e2\u20ac\u201d list, status, values, history",
+      "version": "1.0.0",
+      "file": "plugins/helm.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "imagemagick",
+      "description": "ImageMagick \u2014 identify, convert, resize",
+      "version": "1.0.0",
+      "file": "plugins/imagemagick.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "istio",
+      "description": "Istio service mesh \u2014 proxy status, routes, metrics",
+      "version": "1.0.0",
+      "file": "plugins/istio.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "jenkins",
+      "description": "Jenkins CI \u2014 jobs, builds, console logs, queue",
+      "version": "1.0.0",
+      "file": "plugins/jenkins.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "jest",
+      "description": "Jest testing \u2014 run, coverage, watch",
+      "version": "1.0.0",
+      "file": "plugins/jest.json",
       "author": "inovacc"
     },
     {
       "name": "jira",
-      "description": "Jira project tracking — issues, sprints, create issues via REST API",
+      "description": "Jira project tracking \u00e2\u20ac\u201d issues, sprints, create issues via REST API",
       "version": "1.0.0",
       "file": "plugins/jira.json",
       "author": "inovacc"
     },
     {
+      "name": "jq",
+      "description": "jq JSON processing \u2014 filter, keys, flatten",
+      "version": "1.0.0",
+      "file": "plugins/jq.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "k6",
+      "description": "k6 load testing \u2014 run, cloud, summary",
+      "version": "1.0.0",
+      "file": "plugins/k6.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "kafka",
+      "description": "Apache Kafka \u2014 topics, consume, consumer groups, describe",
+      "version": "1.0.0",
+      "file": "plugins/kafka.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "kind",
+      "description": "kind local Kubernetes \u2014 clusters, create, logs",
+      "version": "1.0.0",
+      "file": "plugins/kind.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "kubernetes",
+      "description": "Kubernetes cluster operations \u00e2\u20ac\u201d pods, logs, describe, events",
+      "version": "1.0.0",
+      "file": "plugins/kubernetes.json",
+      "author": "inovacc"
+    },
+    {
       "name": "linear",
-      "description": "Linear issue tracking — assigned issues, active cycles via GraphQL",
+      "description": "Linear issue tracking \u00e2\u20ac\u201d assigned issues, active cycles via GraphQL",
       "version": "1.0.0",
       "file": "plugins/linear.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "logs",
+      "description": "Log analysis \u00e2\u20ac\u201d tail, search, journald, structured log parsing",
+      "version": "1.0.0",
+      "file": "plugins/logs.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "make",
+      "description": "Make build automation \u00e2\u20ac\u201d targets, dry-run, variables",
+      "version": "1.0.0",
+      "file": "plugins/make.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "maven",
+      "description": "Maven \u2014 build, test, dependency tree, version updates",
+      "version": "1.0.0",
+      "file": "plugins/maven.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "mongodb",
+      "description": "MongoDB operations \u00e2\u20ac\u201d stats, collections, queries, indexes",
+      "version": "1.0.0",
+      "file": "plugins/mongodb.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "mysql",
+      "description": "MySQL database operations \u00e2\u20ac\u201d query, tables, processes, status",
+      "version": "1.0.0",
+      "file": "plugins/mysql.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "nats",
+      "description": "NATS messaging \u2014 subscribe, publish, streams",
+      "version": "1.0.0",
+      "file": "plugins/nats.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "netlify",
+      "description": "Netlify \u2014 sites, deploys, logs",
+      "version": "1.0.0",
+      "file": "plugins/netlify.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "nginx",
+      "description": "Nginx \u2014 status, config test, access logs",
+      "version": "1.0.0",
+      "file": "plugins/nginx.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "nmap",
+      "description": "Nmap network scanning \u00e2\u20ac\u201d port scan, quick scan, service detection",
+      "version": "1.0.0",
+      "file": "plugins/nmap.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "npm",
+      "description": "npm package management \u00e2\u20ac\u201d list, outdated, audit, scripts",
+      "version": "1.0.0",
+      "file": "plugins/npm.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "onepassword",
+      "description": "1Password CLI \u2014 items, get, vaults",
+      "version": "1.0.0",
+      "file": "plugins/onepassword.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "openapi",
+      "description": "OpenAPI spec operations \u00e2\u20ac\u201d validate, lint, preview, generate",
+      "version": "1.0.0",
+      "file": "plugins/openapi.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "pandoc",
+      "description": "Pandoc \u2014 document conversion, format list",
+      "version": "1.0.0",
+      "file": "plugins/pandoc.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "pip",
+      "description": "Python pip package management \u00e2\u20ac\u201d list, outdated, check, show",
+      "version": "1.0.0",
+      "file": "plugins/pip.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "playwright",
+      "description": "Playwright \u2014 test, codegen, trace viewer",
+      "version": "1.0.0",
+      "file": "plugins/playwright.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "podman",
+      "description": "Podman container management \u2014 ps, logs, images, inspect",
+      "version": "1.0.0",
+      "file": "plugins/podman.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "postgres",
+      "description": "PostgreSQL database operations \u00e2\u20ac\u201d query, tables, connections, size",
+      "version": "1.0.0",
+      "file": "plugins/postgres.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "postman",
+      "description": "Newman/Postman \u2014 run collections, environments",
+      "version": "1.0.0",
+      "file": "plugins/postman.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "prometheus",
+      "description": "Prometheus monitoring \u00e2\u20ac\u201d query, targets, alerts, rules",
+      "version": "1.0.0",
+      "file": "plugins/prometheus.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "pytest",
+      "description": "pytest \u2014 run, coverage, markers",
+      "version": "1.0.0",
+      "file": "plugins/pytest.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "rabbitmq",
+      "description": "RabbitMQ \u2014 queues, exchanges, connections",
+      "version": "1.0.0",
+      "file": "plugins/rabbitmq.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "railway",
+      "description": "Railway \u2014 status, logs, variables",
+      "version": "1.0.0",
+      "file": "plugins/railway.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "redis",
+      "description": "Redis operations \u00e2\u20ac\u201d info, keys, memory, slowlog",
+      "version": "1.0.0",
+      "file": "plugins/redis.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "serverless",
+      "description": "Serverless Framework \u2014 info, logs, invoke, deploy list",
+      "version": "1.0.0",
+      "file": "plugins/serverless.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "slack",
+      "description": "Slack integration \u00e2\u20ac\u201d send messages, list channels, channel history",
+      "version": "1.0.0",
+      "file": "plugins/slack.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "sops",
+      "description": "Mozilla SOPS \u2014 decrypt, edit rules, rotate",
+      "version": "1.0.0",
+      "file": "plugins/sops.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "sqlite",
+      "description": "SQLite database operations \u00e2\u20ac\u201d query, schema, tables, integrity",
+      "version": "1.0.0",
+      "file": "plugins/sqlite.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "ssh",
+      "description": "SSH \u2014 hosts, remote exec, tunnels",
+      "version": "1.0.0",
+      "file": "plugins/ssh.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "swift",
+      "description": "Swift \u2014 build, test, package describe",
+      "version": "1.0.0",
+      "file": "plugins/swift.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "sysmon",
+      "description": "System monitoring \u00e2\u20ac\u201d CPU, memory, disk, network, processes",
+      "version": "1.0.0",
+      "file": "plugins/sysmon.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "terraform",
+      "description": "Terraform infrastructure \u00e2\u20ac\u201d plan, state, output, validate",
+      "version": "1.0.0",
+      "file": "plugins/terraform.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "tmux",
+      "description": "tmux \u2014 sessions, windows, capture pane",
+      "version": "1.0.0",
+      "file": "plugins/tmux.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "trivy",
+      "description": "Trivy security scanning \u00e2\u20ac\u201d filesystem, container image, IaC configs",
+      "version": "1.0.0",
+      "file": "plugins/trivy.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "vault",
+      "description": "HashiCorp Vault \u2014 read, list, status",
+      "version": "1.0.0",
+      "file": "plugins/vault.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "vercel",
+      "description": "Vercel \u2014 deployments, logs, env vars, domains",
+      "version": "1.0.0",
+      "file": "plugins/vercel.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "wireguard",
+      "description": "WireGuard VPN \u2014 status, peers, transfer stats",
+      "version": "1.0.0",
+      "file": "plugins/wireguard.json",
       "author": "inovacc"
     }
   ]

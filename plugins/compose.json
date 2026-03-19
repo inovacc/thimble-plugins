@@ -1,0 +1,33 @@
+{
+  "name": "compose",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_compose_ps",
+      "description": "List containers managed by Docker Compose with status and ports.",
+      "command": "docker compose ps --format 'table {{.Name}}\t{{.Service}}\t{{.State}}\t{{.Ports}}'"
+    },
+    {
+      "name": "ctx_compose_logs",
+      "description": "Show logs from a Docker Compose service.",
+      "command": "docker compose logs --tail 100 {{.service}}",
+      "input_schema": {
+        "service": {
+          "type": "string",
+          "description": "Compose service name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_compose_config",
+      "description": "Show the resolved Docker Compose configuration.",
+      "command": "docker compose config"
+    },
+    {
+      "name": "ctx_compose_top",
+      "description": "Show running processes in Docker Compose services.",
+      "command": "docker compose top"
+    }
+  ]
+}

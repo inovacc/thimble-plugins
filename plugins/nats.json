@@ -1,0 +1,50 @@
+{
+  "name": "nats",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_nats_sub",
+      "description": "Subscribe to a NATS subject and receive a limited number of messages",
+      "command": "nats sub {{subject}} --count={{count}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "The NATS subject to subscribe to"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of messages to receive before stopping",
+            "default": 5
+          }
+        },
+        "required": ["subject"]
+      }
+    },
+    {
+      "name": "ctx_nats_pub",
+      "description": "Publish a message to a NATS subject",
+      "command": "nats pub {{subject}} '{{message}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "type": "string",
+            "description": "The NATS subject to publish to"
+          },
+          "message": {
+            "type": "string",
+            "description": "The message payload to publish"
+          }
+        },
+        "required": ["subject", "message"]
+      }
+    },
+    {
+      "name": "ctx_nats_streams",
+      "description": "List all JetStream streams",
+      "command": "nats stream ls"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "tmux",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_tmux_sessions",
+      "description": "List all active tmux sessions",
+      "command": "tmux list-sessions"
+    },
+    {
+      "name": "ctx_tmux_windows",
+      "description": "List windows in a tmux session",
+      "command": "tmux list-windows -t {{session}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "type": "string",
+            "description": "Name of the tmux session"
+          }
+        },
+        "required": ["session"]
+      }
+    },
+    {
+      "name": "ctx_tmux_capture",
+      "description": "Capture the current pane output from a tmux session",
+      "command": "tmux capture-pane -t {{session}} -p",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session": {
+            "type": "string",
+            "description": "Name of the tmux session to capture from"
+          }
+        },
+        "required": ["session"]
+      }
+    }
+  ]
+}

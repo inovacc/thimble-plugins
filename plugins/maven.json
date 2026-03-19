@@ -1,0 +1,26 @@
+{
+  "name": "maven",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_mvn_build",
+      "description": "Build and package the Maven project",
+      "command": "mvn package"
+    },
+    {
+      "name": "ctx_mvn_test",
+      "description": "Run Maven unit tests",
+      "command": "mvn test"
+    },
+    {
+      "name": "ctx_mvn_deps",
+      "description": "Display the Maven dependency tree",
+      "command": "mvn dependency:tree"
+    },
+    {
+      "name": "ctx_mvn_versions",
+      "description": "Check for available dependency updates",
+      "command": "mvn versions:display-dependency-updates"
+    }
+  ]
+}

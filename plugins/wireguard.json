@@ -1,0 +1,21 @@
+{
+  "name": "wireguard",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_wg_status",
+      "description": "Show WireGuard interface status and configuration",
+      "command": "wg show"
+    },
+    {
+      "name": "ctx_wg_peers",
+      "description": "Show all WireGuard peers across all interfaces",
+      "command": "wg show all peers"
+    },
+    {
+      "name": "ctx_wg_transfer",
+      "description": "Show WireGuard transfer statistics for all interfaces",
+      "command": "wg show all transfer"
+    }
+  ]
+}

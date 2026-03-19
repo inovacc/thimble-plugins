@@ -1,0 +1,21 @@
+{
+  "name": "railway",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_railway_status",
+      "description": "Show the current Railway project and environment status",
+      "command": "railway status"
+    },
+    {
+      "name": "ctx_railway_logs",
+      "description": "Show recent deployment logs for the current Railway service",
+      "command": "railway logs"
+    },
+    {
+      "name": "ctx_railway_vars",
+      "description": "List all environment variables for the current Railway service",
+      "command": "railway variables"
+    }
+  ]
+}

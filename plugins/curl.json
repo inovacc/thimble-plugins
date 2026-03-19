@@ -1,0 +1,70 @@
+{
+  "name": "curl",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_http_get",
+      "description": "Perform a silent HTTP GET request",
+      "command": "curl -s {{url}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to fetch"
+          }
+        },
+        "required": ["url"]
+      }
+    },
+    {
+      "name": "ctx_http_post",
+      "description": "Perform an HTTP POST request with data",
+      "command": "curl -s -X POST -H 'Content-Type: application/json' -d '{{data}}' {{url}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to send the POST request to"
+          },
+          "data": {
+            "type": "string",
+            "description": "The request body data (JSON string)"
+          }
+        },
+        "required": ["url", "data"]
+      }
+    },
+    {
+      "name": "ctx_http_headers",
+      "description": "Fetch only the HTTP response headers",
+      "command": "curl -s -I {{url}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to fetch headers from"
+          }
+        },
+        "required": ["url"]
+      }
+    },
+    {
+      "name": "ctx_http_timing",
+      "description": "Measure HTTP request timing breakdown (DNS, connect, TLS, transfer)",
+      "command": "curl -s -o /dev/null -w 'dns_lookup: %{time_namelookup}s\\nconnect: %{time_connect}s\\ntls_handshake: %{time_appconnect}s\\nstart_transfer: %{time_starttransfer}s\\ntotal: %{time_total}s\\n' {{url}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The URL to measure timing for"
+          }
+        },
+        "required": ["url"]
+      }
+    }
+  ]
+}
