@@ -1,0 +1,25 @@
+{
+  "plugins": [
+    {
+      "name": "docker",
+      "description": "Docker container management — ps, logs, images, stats",
+      "version": "1.0.0",
+      "file": "plugins/docker.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "kubernetes",
+      "description": "Kubernetes cluster operations — pods, logs, describe, events",
+      "version": "1.0.0",
+      "file": "plugins/kubernetes.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "terraform",
+      "description": "Terraform infrastructure — plan, state, output, validate",
+      "version": "1.0.0",
+      "file": "plugins/terraform.json",
+      "author": "inovacc"
+    }
+  ]
+}

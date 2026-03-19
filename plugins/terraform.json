@@ -1,0 +1,27 @@
+{
+  "name": "terraform",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_tf_plan",
+      "description": "Run terraform plan and show the execution plan.",
+      "command": "terraform plan -no-color",
+      "timeout_ms": 120000
+    },
+    {
+      "name": "ctx_tf_state",
+      "description": "List resources in terraform state.",
+      "command": "terraform state list"
+    },
+    {
+      "name": "ctx_tf_output",
+      "description": "Show terraform output values.",
+      "command": "terraform output -json"
+    },
+    {
+      "name": "ctx_tf_validate",
+      "description": "Validate terraform configuration files.",
+      "command": "terraform validate -json"
+    }
+  ]
+}

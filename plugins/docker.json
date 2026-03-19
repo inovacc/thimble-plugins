@@ -1,0 +1,33 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_docker_ps",
+      "description": "List running Docker containers with status, ports, and names.",
+      "command": "docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}'"
+    },
+    {
+      "name": "ctx_docker_logs",
+      "description": "Show logs from a Docker container.",
+      "command": "docker logs --tail 100 {{.container}}",
+      "input_schema": {
+        "container": {
+          "type": "string",
+          "description": "container name or ID",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_docker_images",
+      "description": "List Docker images with repository, tag, and size.",
+      "command": "docker images --format 'table {{.Repository}}\t{{.Tag}}\t{{.Size}}\t{{.CreatedSince}}'"
+    },
+    {
+      "name": "ctx_docker_stats",
+      "description": "Show real-time resource usage for running containers.",
+      "command": "docker stats --no-stream --format 'table {{.Name}}\t{{.CPUPerc}}\t{{.MemUsage}}\t{{.NetIO}}'"
+    }
+  ]
+}

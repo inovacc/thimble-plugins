@@ -1,0 +1,45 @@
+{
+  "name": "kubernetes",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_k8s_pods",
+      "description": "List pods in the current namespace with status and restarts.",
+      "command": "kubectl get pods -o wide"
+    },
+    {
+      "name": "ctx_k8s_logs",
+      "description": "Show logs from a Kubernetes pod.",
+      "command": "kubectl logs --tail=100 {{.pod}}",
+      "input_schema": {
+        "pod": {
+          "type": "string",
+          "description": "pod name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_k8s_describe",
+      "description": "Describe a Kubernetes resource.",
+      "command": "kubectl describe {{.kind}} {{.name}}",
+      "input_schema": {
+        "kind": {
+          "type": "string",
+          "description": "resource kind (pod, service, deployment, etc.)",
+          "required": true
+        },
+        "name": {
+          "type": "string",
+          "description": "resource name",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_k8s_events",
+      "description": "Show recent cluster events.",
+      "command": "kubectl get events --sort-by=.lastTimestamp --field-selector type!=Normal"
+    }
+  ]
+}
