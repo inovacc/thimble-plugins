@@ -1,0 +1,31 @@
+{
+  "name": "ansible",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_ansible_inventory",
+      "description": "List all hosts and groups from the Ansible inventory",
+      "command": "ansible-inventory --list"
+    },
+    {
+      "name": "ctx_ansible_ping",
+      "description": "Ping all hosts in the inventory to check connectivity",
+      "command": "ansible all -m ping"
+    },
+    {
+      "name": "ctx_ansible_facts",
+      "description": "Gather system facts from a specific host using the setup module",
+      "command": "ansible {{host}} -m setup",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "host": {
+            "type": "string",
+            "description": "Target host or group name (e.g. 'webservers', '192.168.1.10')"
+          }
+        },
+        "required": ["host"]
+      }
+    }
+  ]
+}

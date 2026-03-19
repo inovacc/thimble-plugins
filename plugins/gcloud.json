@@ -1,0 +1,36 @@
+{
+  "name": "gcloud",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_gcp_instances",
+      "description": "List all Compute Engine VM instances in the current project",
+      "command": "gcloud compute instances list --format='table(name,zone,machineType.basename(),status,networkInterfaces[0].accessConfigs[0].natIP)'"
+    },
+    {
+      "name": "ctx_gcp_logs",
+      "description": "Read Cloud Logging entries matching a filter expression",
+      "command": "gcloud logging read '{{filter}}' --limit=50 --format='table(timestamp,severity,textPayload)'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "description": "Log filter expression (e.g. 'resource.type=cloud_function AND severity>=ERROR')"
+          }
+        },
+        "required": ["filter"]
+      }
+    },
+    {
+      "name": "ctx_gcp_buckets",
+      "description": "List all Cloud Storage buckets in the current project",
+      "command": "gcloud storage buckets list --format='table(name,location,storageClass,timeCreated)'"
+    },
+    {
+      "name": "ctx_gcp_services",
+      "description": "List all enabled APIs and services in the current project",
+      "command": "gcloud services list --enabled --format='table(config.name,config.title,state)'"
+    }
+  ]
+}

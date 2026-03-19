@@ -1,0 +1,23 @@
+{
+  "name": "make",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_make_targets",
+      "description": "List all targets defined in the Makefile.",
+      "command": "grep -E '^[a-zA-Z_-]+:' Makefile | sed 's/:.*//' | sort"
+    },
+    {
+      "name": "ctx_make_run",
+      "description": "Run a specific Makefile target.",
+      "command": "make {{.target}}",
+      "input_schema": {
+        "target": {
+          "type": "string",
+          "description": "Makefile target to run",
+          "required": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "mongodb",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_mongo_find",
+      "description": "Query documents from a MongoDB collection using mongosh",
+      "command": "mongosh --quiet --eval 'db.getSiblingDB(\"{{database}}\").{{collection}}.find({{query}}).limit(20).toArray()' --json=relaxed",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "MongoDB database name"
+          },
+          "collection": {
+            "type": "string",
+            "description": "Collection name to query"
+          },
+          "query": {
+            "type": "string",
+            "description": "MongoDB query filter as JSON (e.g. '{status: \"active\"}', '{}' for all)"
+          }
+        },
+        "required": ["database", "collection", "query"]
+      }
+    },
+    {
+      "name": "ctx_mongo_collections",
+      "description": "List all collections in a MongoDB database",
+      "command": "mongosh --quiet --eval 'db.getSiblingDB(\"{{database}}\").getCollectionNames()' --json=relaxed",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "MongoDB database name"
+          }
+        },
+        "required": ["database"]
+      }
+    },
+    {
+      "name": "ctx_mongo_stats",
+      "description": "Show MongoDB server status including connections, memory, and opcounters",
+      "command": "mongosh --quiet --eval 'db.adminCommand({serverStatus: 1, repl: 0, metrics: 0, locks: 0})' --json=relaxed"
+    }
+  ]
+}

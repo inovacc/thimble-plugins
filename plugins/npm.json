@@ -1,0 +1,26 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_npm_outdated",
+      "description": "Check for outdated npm packages in the current project.",
+      "command": "npm outdated"
+    },
+    {
+      "name": "ctx_npm_audit",
+      "description": "Run a security audit on npm dependencies and output as JSON.",
+      "command": "npm audit --json"
+    },
+    {
+      "name": "ctx_npm_scripts",
+      "description": "List all available npm scripts defined in package.json.",
+      "command": "npm run"
+    },
+    {
+      "name": "ctx_npm_ls",
+      "description": "List top-level installed npm packages.",
+      "command": "npm ls --depth=0"
+    }
+  ]
+}

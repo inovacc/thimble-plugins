@@ -1,0 +1,31 @@
+{
+  "name": "sysmon",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_sys_disk",
+      "description": "Show disk usage across all mounted filesystems.",
+      "command": "df -h"
+    },
+    {
+      "name": "ctx_sys_mem",
+      "description": "Show memory usage (supports Linux free -h and macOS vm_stat fallback).",
+      "command": "free -h 2>/dev/null || { echo '--- macOS Memory ---'; vm_stat | head -10; sysctl -n hw.memsize | awk '{printf \"Total: %.1f GB\\n\", $1/1073741824}'; }"
+    },
+    {
+      "name": "ctx_sys_top",
+      "description": "Show top 20 processes sorted by CPU usage.",
+      "command": "ps aux --sort=-%cpu 2>/dev/null | head -20 || ps aux -r | head -20"
+    },
+    {
+      "name": "ctx_sys_ports",
+      "description": "Show listening TCP ports and associated processes.",
+      "command": "ss -tlnp 2>/dev/null || netstat -tlnp 2>/dev/null || lsof -iTCP -sTCP:LISTEN -P -n"
+    },
+    {
+      "name": "ctx_sys_network",
+      "description": "Show network interface addresses and configuration.",
+      "command": "ip addr 2>/dev/null || ifconfig"
+    }
+  ]
+}

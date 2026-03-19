@@ -1,0 +1,37 @@
+{
+  "name": "nmap",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_nmap_scan",
+      "description": "Scan a host for open ports using Nmap with service version detection.",
+      "command": "nmap -sV -p {{.ports}} {{.host}}",
+      "timeout_ms": 60000,
+      "input_schema": {
+        "host": {
+          "type": "string",
+          "description": "Target host or IP address to scan",
+          "required": true
+        },
+        "ports": {
+          "type": "string",
+          "description": "Port range to scan (e.g. 80,443 or 1-1024)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_nmap_quick",
+      "description": "Quick scan of the top 100 most common ports on a host.",
+      "command": "nmap -F {{.host}}",
+      "timeout_ms": 60000,
+      "input_schema": {
+        "host": {
+          "type": "string",
+          "description": "Target host or IP address to scan",
+          "required": true
+        }
+      }
+    }
+  ]
+}

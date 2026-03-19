@@ -1,0 +1,72 @@
+{
+  "name": "jira",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_jira_issues",
+      "description": "List Jira issues for a project filtered by status using REST API v2.",
+      "command": "curl -s -u \"$JIRA_USER:$JIRA_TOKEN\" -H 'Content-Type: application/json' '{{.url}}/rest/api/2/search?jql=project={{.project}}+AND+status={{.status}}&fields=key,summary,status,assignee,priority' | jq '.issues[] | {key: .key, summary: .fields.summary, status: .fields.status.name, assignee: .fields.assignee.displayName, priority: .fields.priority.name}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jira instance base URL (e.g. https://myorg.atlassian.net)",
+          "required": true
+        },
+        "project": {
+          "type": "string",
+          "description": "Jira project key (e.g. PROJ)",
+          "required": true
+        },
+        "status": {
+          "type": "string",
+          "description": "Issue status filter (e.g. Open, In+Progress, Done)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_jira_sprint",
+      "description": "Show the active sprint and its issues for a Jira board using REST API v2.",
+      "command": "curl -s -u \"$JIRA_USER:$JIRA_TOKEN\" -H 'Content-Type: application/json' '{{.url}}/rest/agile/1.0/board/{{.board_id}}/sprint?state=active' | jq '.values[] | {id: .id, name: .name, startDate: .startDate, endDate: .endDate}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jira instance base URL (e.g. https://myorg.atlassian.net)",
+          "required": true
+        },
+        "board_id": {
+          "type": "string",
+          "description": "Jira board ID",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_jira_create",
+      "description": "Create a new Jira issue using REST API v2.",
+      "command": "curl -s -X POST -u \"$JIRA_USER:$JIRA_TOKEN\" -H 'Content-Type: application/json' -d '{\"fields\": {\"project\": {\"key\": \"{{.project}}\"}, \"summary\": \"{{.summary}}\", \"issuetype\": {\"name\": \"{{.type}}\"}}}' '{{.url}}/rest/api/2/issue' | jq '{key: .key, self: .self}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Jira instance base URL (e.g. https://myorg.atlassian.net)",
+          "required": true
+        },
+        "project": {
+          "type": "string",
+          "description": "Jira project key (e.g. PROJ)",
+          "required": true
+        },
+        "summary": {
+          "type": "string",
+          "description": "Issue summary/title",
+          "required": true
+        },
+        "type": {
+          "type": "string",
+          "description": "Issue type (e.g. Task, Bug, Story)",
+          "required": true
+        }
+      }
+    }
+  ]
+}

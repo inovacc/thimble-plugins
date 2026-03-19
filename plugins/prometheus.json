@@ -1,0 +1,47 @@
+{
+  "name": "prometheus",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_prom_query",
+      "description": "Execute a PromQL instant query against Prometheus.",
+      "command": "curl -s '{{.url}}/api/v1/query?query={{.query}}'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Prometheus base URL",
+          "default": "http://localhost:9090"
+        },
+        "query": {
+          "type": "string",
+          "description": "PromQL query expression",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_prom_targets",
+      "description": "List all Prometheus scrape targets and their health status.",
+      "command": "curl -s '{{.url}}/api/v1/targets'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Prometheus base URL",
+          "default": "http://localhost:9090"
+        }
+      }
+    },
+    {
+      "name": "ctx_prom_alerts",
+      "description": "List all active Prometheus alerts.",
+      "command": "curl -s '{{.url}}/api/v1/alerts'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Prometheus base URL",
+          "default": "http://localhost:9090"
+        }
+      }
+    }
+  ]
+}

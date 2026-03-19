@@ -1,0 +1,21 @@
+{
+  "name": "cargo",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_cargo_outdated",
+      "description": "Check for outdated Rust crate dependencies.",
+      "command": "cargo outdated 2>/dev/null || echo 'cargo-outdated not installed. Install with: cargo install cargo-outdated'"
+    },
+    {
+      "name": "ctx_cargo_audit",
+      "description": "Audit Rust dependencies for known security vulnerabilities.",
+      "command": "cargo audit"
+    },
+    {
+      "name": "ctx_cargo_tree",
+      "description": "Show the dependency tree for the current Rust project (depth 1).",
+      "command": "cargo tree --depth=1"
+    }
+  ]
+}

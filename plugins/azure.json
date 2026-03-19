@@ -1,0 +1,26 @@
+{
+  "name": "azure",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_az_vm_list",
+      "description": "List all Azure virtual machines in table format",
+      "command": "az vm list --output table --query '[].{Name:name,RG:resourceGroup,Location:location,Size:hardwareProfile.vmSize,Status:powerState}'"
+    },
+    {
+      "name": "ctx_az_resources",
+      "description": "List all resources in the current subscription",
+      "command": "az resource list --output table --query '[].{Name:name,Type:type,RG:resourceGroup,Location:location}'"
+    },
+    {
+      "name": "ctx_az_logs",
+      "description": "List recent activity log entries from Azure Monitor",
+      "command": "az monitor activity-log list --max-events 50 --output table --query '[].{Time:eventTimestamp,Operation:operationName.localizedValue,Status:status.localizedValue,Caller:caller}'"
+    },
+    {
+      "name": "ctx_az_account",
+      "description": "Show the current Azure account and subscription details",
+      "command": "az account show --output table"
+    }
+  ]
+}

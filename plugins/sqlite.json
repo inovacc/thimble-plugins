@@ -1,0 +1,55 @@
+{
+  "name": "sqlite",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_sqlite_query",
+      "description": "Execute a SQL query against a SQLite database file",
+      "command": "sqlite3 -header -column {{database}} '{{query}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the SQLite database file"
+          },
+          "query": {
+            "type": "string",
+            "description": "SQL query to execute (e.g. 'SELECT * FROM users LIMIT 10')"
+          }
+        },
+        "required": ["database", "query"]
+      }
+    },
+    {
+      "name": "ctx_sqlite_tables",
+      "description": "List all tables in a SQLite database",
+      "command": "sqlite3 {{database}} '.tables'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the SQLite database file"
+          }
+        },
+        "required": ["database"]
+      }
+    },
+    {
+      "name": "ctx_sqlite_schema",
+      "description": "Show the full schema (CREATE statements) for all tables in a SQLite database",
+      "command": "sqlite3 {{database}} '.schema'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "string",
+            "description": "Path to the SQLite database file"
+          }
+        },
+        "required": ["database"]
+      }
+    }
+  ]
+}

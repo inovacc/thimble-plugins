@@ -1,0 +1,57 @@
+{
+  "name": "slack",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_slack_send",
+      "description": "Send a message to a Slack channel via incoming webhook URL.",
+      "command": "curl -s -X POST -H 'Content-Type: application/json' -d '{\"text\": \"{{.message}}\"}' {{.webhook_url}}",
+      "input_schema": {
+        "webhook_url": {
+          "type": "string",
+          "description": "Slack incoming webhook URL",
+          "required": true
+        },
+        "message": {
+          "type": "string",
+          "description": "Message text to send",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_slack_channels",
+      "description": "List Slack channels accessible to the given API token.",
+      "command": "curl -s -H 'Authorization: Bearer {{.token}}' 'https://slack.com/api/conversations.list?types=public_channel,private_channel&limit=100' | jq '.channels[] | {id: .id, name: .name, is_private: .is_private}'",
+      "input_schema": {
+        "token": {
+          "type": "string",
+          "description": "Slack Bot or User OAuth token",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_slack_history",
+      "description": "Retrieve recent message history from a Slack channel.",
+      "command": "curl -s -H 'Authorization: Bearer {{.token}}' 'https://slack.com/api/conversations.history?channel={{.channel}}&limit={{.limit}}' | jq '.messages[] | {user: .user, text: .text, ts: .ts}'",
+      "input_schema": {
+        "token": {
+          "type": "string",
+          "description": "Slack Bot or User OAuth token",
+          "required": true
+        },
+        "channel": {
+          "type": "string",
+          "description": "Slack channel ID",
+          "required": true
+        },
+        "limit": {
+          "type": "string",
+          "description": "Number of messages to retrieve (default 20)",
+          "required": false
+        }
+      }
+    }
+  ]
+}

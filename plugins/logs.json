@@ -1,0 +1,57 @@
+{
+  "name": "logs",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_log_tail",
+      "description": "Tail a log file showing the most recent lines.",
+      "command": "tail -f -n {{.lines}} {{.file}}",
+      "input_schema": {
+        "file": {
+          "type": "string",
+          "description": "path to the log file",
+          "required": true
+        },
+        "lines": {
+          "type": "integer",
+          "description": "number of lines to show",
+          "default": 100
+        }
+      }
+    },
+    {
+      "name": "ctx_log_grep",
+      "description": "Search for a pattern in a log file.",
+      "command": "grep -n '{{.pattern}}' {{.file}}",
+      "input_schema": {
+        "file": {
+          "type": "string",
+          "description": "path to the log file",
+          "required": true
+        },
+        "pattern": {
+          "type": "string",
+          "description": "search pattern (grep regex)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_log_journalctl",
+      "description": "Show systemd journal logs for a specific unit.",
+      "command": "journalctl -u {{.unit}} -n {{.lines}} --no-pager",
+      "input_schema": {
+        "unit": {
+          "type": "string",
+          "description": "systemd unit name",
+          "required": true
+        },
+        "lines": {
+          "type": "integer",
+          "description": "number of lines to show",
+          "default": 50
+        }
+      }
+    }
+  ]
+}

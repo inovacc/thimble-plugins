@@ -1,0 +1,30 @@
+{
+  "name": "linear",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_linear_issues",
+      "description": "List my assigned Linear issues using the GraphQL API.",
+      "command": "curl -s -X POST -H 'Content-Type: application/json' -H 'Authorization: {{.api_key}}' -d '{\"query\": \"{ viewer { assignedIssues(first: 25, orderBy: updatedAt) { nodes { identifier title state { name } priority priorityLabel updatedAt } } } }\"}' https://api.linear.app/graphql | jq '.data.viewer.assignedIssues.nodes[] | {id: .identifier, title: .title, state: .state.name, priority: .priorityLabel}'",
+      "input_schema": {
+        "api_key": {
+          "type": "string",
+          "description": "Linear API key",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_linear_cycles",
+      "description": "List active cycles across Linear teams using the GraphQL API.",
+      "command": "curl -s -X POST -H 'Content-Type: application/json' -H 'Authorization: {{.api_key}}' -d '{\"query\": \"{ cycles(filter: { isActive: { eq: true } }) { nodes { name startsAt endsAt progress team { name } issueCountHistory completedIssueCountHistory } } }\"}' https://api.linear.app/graphql | jq '.data.cycles.nodes[] | {name: .name, team: .team.name, starts: .startsAt, ends: .endsAt, progress: .progress}'",
+      "input_schema": {
+        "api_key": {
+          "type": "string",
+          "description": "Linear API key",
+          "required": true
+        }
+      }
+    }
+  ]
+}

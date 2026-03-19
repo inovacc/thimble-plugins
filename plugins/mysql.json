@@ -1,0 +1,63 @@
+{
+  "name": "mysql",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_mysql_query",
+      "description": "Execute a SQL query against a MySQL database",
+      "command": "mysql -u {{user}} -D {{database}} -e '{{query}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "MySQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          },
+          "query": {
+            "type": "string",
+            "description": "SQL query to execute (e.g. 'SELECT * FROM users LIMIT 10')"
+          }
+        },
+        "required": ["user", "database", "query"]
+      }
+    },
+    {
+      "name": "ctx_mysql_tables",
+      "description": "Show all tables in a MySQL database",
+      "command": "mysql -u {{user}} -D {{database}} -e 'SHOW TABLES'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "MySQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          }
+        },
+        "required": ["user", "database"]
+      }
+    },
+    {
+      "name": "ctx_mysql_status",
+      "description": "Show MySQL server status and uptime information",
+      "command": "mysqladmin -u {{user}} status extended-status",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "MySQL username"
+          }
+        },
+        "required": ["user"]
+      }
+    }
+  ]
+}

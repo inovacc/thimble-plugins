@@ -1,0 +1,46 @@
+{
+  "name": "redis",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_redis_info",
+      "description": "Show Redis server information and statistics",
+      "command": "redis-cli INFO"
+    },
+    {
+      "name": "ctx_redis_keys",
+      "description": "Scan for keys matching a glob pattern",
+      "command": "redis-cli --scan --pattern '{{pattern}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "pattern": {
+            "type": "string",
+            "description": "Key glob pattern (e.g. 'user:*', 'session:*', '*')"
+          }
+        },
+        "required": ["pattern"]
+      }
+    },
+    {
+      "name": "ctx_redis_get",
+      "description": "Get the value of a specific Redis key",
+      "command": "redis-cli GET {{key}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The Redis key to retrieve"
+          }
+        },
+        "required": ["key"]
+      }
+    },
+    {
+      "name": "ctx_redis_dbsize",
+      "description": "Show the total number of keys in the current Redis database",
+      "command": "redis-cli DBSIZE"
+    }
+  ]
+}

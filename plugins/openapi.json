@@ -1,0 +1,42 @@
+{
+  "name": "openapi",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_openapi_validate",
+      "description": "Validate an OpenAPI specification file for correctness.",
+      "command": "npx swagger-cli validate {{.file}}",
+      "input_schema": {
+        "file": {
+          "type": "string",
+          "description": "path to the OpenAPI spec file (YAML or JSON)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_openapi_routes",
+      "description": "List all API paths defined in an OpenAPI specification.",
+      "command": "cat {{.file}} | grep -E '^ {2}/|^ {4}(get|post|put|patch|delete|head|options):' | sed 's/://g' | sed 's/^ *//'",
+      "input_schema": {
+        "file": {
+          "type": "string",
+          "description": "path to the OpenAPI spec file (YAML or JSON)",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_openapi_lint",
+      "description": "Lint an OpenAPI specification using Spectral.",
+      "command": "npx @stoplight/spectral-cli lint {{.file}}",
+      "input_schema": {
+        "file": {
+          "type": "string",
+          "description": "path to the OpenAPI spec file (YAML or JSON)",
+          "required": true
+        }
+      }
+    }
+  ]
+}

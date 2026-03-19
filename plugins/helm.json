@@ -1,0 +1,56 @@
+{
+  "name": "helm",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_helm_list",
+      "description": "List all Helm releases across all namespaces",
+      "command": "helm list --all-namespaces --output table"
+    },
+    {
+      "name": "ctx_helm_status",
+      "description": "Show the status of a specific Helm release",
+      "command": "helm status {{release}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "release": {
+            "type": "string",
+            "description": "Name of the Helm release"
+          }
+        },
+        "required": ["release"]
+      }
+    },
+    {
+      "name": "ctx_helm_values",
+      "description": "Get the computed values for a deployed Helm release",
+      "command": "helm get values {{release}} --all",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "release": {
+            "type": "string",
+            "description": "Name of the Helm release"
+          }
+        },
+        "required": ["release"]
+      }
+    },
+    {
+      "name": "ctx_helm_history",
+      "description": "Show the revision history of a Helm release",
+      "command": "helm history {{release}} --output table",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "release": {
+            "type": "string",
+            "description": "Name of the Helm release"
+          }
+        },
+        "required": ["release"]
+      }
+    }
+  ]
+}

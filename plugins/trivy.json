@@ -1,0 +1,31 @@
+{
+  "name": "trivy",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_trivy_scan",
+      "description": "Run Trivy filesystem scan on the current directory to detect vulnerabilities in dependencies.",
+      "command": "trivy fs --severity HIGH,CRITICAL --format table .",
+      "timeout_ms": 120000
+    },
+    {
+      "name": "ctx_trivy_image",
+      "description": "Scan a Docker image for vulnerabilities using Trivy.",
+      "command": "trivy image --severity HIGH,CRITICAL --format table {{.image}}",
+      "timeout_ms": 120000,
+      "input_schema": {
+        "image": {
+          "type": "string",
+          "description": "Docker image name and tag to scan",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_trivy_config",
+      "description": "Scan Infrastructure as Code configurations for misconfigurations using Trivy.",
+      "command": "trivy config --severity HIGH,CRITICAL --format table .",
+      "timeout_ms": 120000
+    }
+  ]
+}

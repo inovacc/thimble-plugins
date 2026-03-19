@@ -1,0 +1,86 @@
+{
+  "name": "postgres",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_pg_query",
+      "description": "Execute a SQL query against a PostgreSQL database",
+      "command": "psql -U {{user}} -d {{database}} -c '{{query}}'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "PostgreSQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          },
+          "query": {
+            "type": "string",
+            "description": "SQL query to execute (e.g. 'SELECT * FROM users LIMIT 10')"
+          }
+        },
+        "required": ["user", "database", "query"]
+      }
+    },
+    {
+      "name": "ctx_pg_tables",
+      "description": "List all tables in the public schema of a PostgreSQL database",
+      "command": "psql -U {{user}} -d {{database}} -c '\\dt'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "PostgreSQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          }
+        },
+        "required": ["user", "database"]
+      }
+    },
+    {
+      "name": "ctx_pg_schemas",
+      "description": "List all schemas in a PostgreSQL database",
+      "command": "psql -U {{user}} -d {{database}} -c '\\dn'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "PostgreSQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          }
+        },
+        "required": ["user", "database"]
+      }
+    },
+    {
+      "name": "ctx_pg_connections",
+      "description": "Show active connections and their states from pg_stat_activity",
+      "command": "psql -U {{user}} -d {{database}} -c 'SELECT pid, usename, datname, state, query_start, left(query, 80) AS query FROM pg_stat_activity WHERE state IS NOT NULL ORDER BY query_start DESC'",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "type": "string",
+            "description": "PostgreSQL username"
+          },
+          "database": {
+            "type": "string",
+            "description": "Database name to connect to"
+          }
+        },
+        "required": ["user", "database"]
+      }
+    }
+  ]
+}

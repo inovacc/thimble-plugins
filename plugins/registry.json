@@ -20,6 +20,181 @@
       "version": "1.0.0",
       "file": "plugins/terraform.json",
       "author": "inovacc"
+    },
+    {
+      "name": "aws",
+      "description": "AWS cloud operations — EC2, S3, Lambda, CloudWatch",
+      "version": "1.0.0",
+      "file": "plugins/aws.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "gcloud",
+      "description": "Google Cloud operations — compute, storage, functions, logs",
+      "version": "1.0.0",
+      "file": "plugins/gcloud.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "azure",
+      "description": "Azure cloud operations — VMs, storage, functions, monitor",
+      "version": "1.0.0",
+      "file": "plugins/azure.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "helm",
+      "description": "Helm chart management — list, status, values, history",
+      "version": "1.0.0",
+      "file": "plugins/helm.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "ansible",
+      "description": "Ansible automation — playbook run, inventory, vault, galaxy",
+      "version": "1.0.0",
+      "file": "plugins/ansible.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "postgres",
+      "description": "PostgreSQL database operations — query, tables, connections, size",
+      "version": "1.0.0",
+      "file": "plugins/postgres.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "mysql",
+      "description": "MySQL database operations — query, tables, processes, status",
+      "version": "1.0.0",
+      "file": "plugins/mysql.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "redis",
+      "description": "Redis operations — info, keys, memory, slowlog",
+      "version": "1.0.0",
+      "file": "plugins/redis.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "mongodb",
+      "description": "MongoDB operations — stats, collections, queries, indexes",
+      "version": "1.0.0",
+      "file": "plugins/mongodb.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "sqlite",
+      "description": "SQLite database operations — query, schema, tables, integrity",
+      "version": "1.0.0",
+      "file": "plugins/sqlite.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "sysmon",
+      "description": "System monitoring — CPU, memory, disk, network, processes",
+      "version": "1.0.0",
+      "file": "plugins/sysmon.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "logs",
+      "description": "Log analysis — tail, search, journald, structured log parsing",
+      "version": "1.0.0",
+      "file": "plugins/logs.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "prometheus",
+      "description": "Prometheus monitoring — query, targets, alerts, rules",
+      "version": "1.0.0",
+      "file": "plugins/prometheus.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "grafana",
+      "description": "Grafana dashboards — list, search, annotations, datasources",
+      "version": "1.0.0",
+      "file": "plugins/grafana.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "npm",
+      "description": "npm package management — list, outdated, audit, scripts",
+      "version": "1.0.0",
+      "file": "plugins/npm.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "pip",
+      "description": "Python pip package management — list, outdated, check, show",
+      "version": "1.0.0",
+      "file": "plugins/pip.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "cargo",
+      "description": "Rust Cargo operations — build, test, clippy, outdated",
+      "version": "1.0.0",
+      "file": "plugins/cargo.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "make",
+      "description": "Make build automation — targets, dry-run, variables",
+      "version": "1.0.0",
+      "file": "plugins/make.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "openapi",
+      "description": "OpenAPI spec operations — validate, lint, preview, generate",
+      "version": "1.0.0",
+      "file": "plugins/openapi.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "trivy",
+      "description": "Trivy security scanning — filesystem, container image, IaC configs",
+      "version": "1.0.0",
+      "file": "plugins/trivy.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "gitleaks",
+      "description": "Gitleaks secret detection — repo scan, staged changes protection",
+      "version": "1.0.0",
+      "file": "plugins/gitleaks.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "nmap",
+      "description": "Nmap network scanning — port scan, quick scan, service detection",
+      "version": "1.0.0",
+      "file": "plugins/nmap.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "slack",
+      "description": "Slack integration — send messages, list channels, channel history",
+      "version": "1.0.0",
+      "file": "plugins/slack.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "jira",
+      "description": "Jira project tracking — issues, sprints, create issues via REST API",
+      "version": "1.0.0",
+      "file": "plugins/jira.json",
+      "author": "inovacc"
+    },
+    {
+      "name": "linear",
+      "description": "Linear issue tracking — assigned issues, active cycles via GraphQL",
+      "version": "1.0.0",
+      "file": "plugins/linear.json",
+      "author": "inovacc"
     }
   ]
 }

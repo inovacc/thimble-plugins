@@ -1,0 +1,49 @@
+{
+  "name": "aws",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_aws_s3_ls",
+      "description": "List S3 buckets or objects at a given path",
+      "command": "aws s3 ls {{path}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "S3 path (e.g. s3://bucket/prefix). Leave empty to list all buckets"
+          }
+        }
+      }
+    },
+    {
+      "name": "ctx_aws_ec2_list",
+      "description": "Describe all EC2 instances in table format",
+      "command": "aws ec2 describe-instances --output table --query 'Reservations[].Instances[].{ID:InstanceId,Type:InstanceType,State:State.Name,Name:Tags[?Key==`Name`]|[0].Value,IP:PrivateIpAddress}'"
+    },
+    {
+      "name": "ctx_aws_logs_tail",
+      "description": "Tail CloudWatch log group events",
+      "command": "aws logs filter-log-events --log-group-name {{log_group}} --start-time $(date -d '{{since}}' +%s000) --limit 50 --output text",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "log_group": {
+            "type": "string",
+            "description": "CloudWatch log group name (e.g. /aws/lambda/my-function)"
+          },
+          "since": {
+            "type": "string",
+            "description": "Time range to look back (e.g. '1 hour ago', '30 minutes ago')"
+          }
+        },
+        "required": ["log_group", "since"]
+      }
+    },
+    {
+      "name": "ctx_aws_sts_whoami",
+      "description": "Show the current AWS caller identity (account, ARN, user ID)",
+      "command": "aws sts get-caller-identity --output table"
+    }
+  ]
+}

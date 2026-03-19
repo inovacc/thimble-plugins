@@ -1,0 +1,21 @@
+{
+  "name": "pip",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_pip_list",
+      "description": "List all installed Python packages in column format.",
+      "command": "pip list --format=columns"
+    },
+    {
+      "name": "ctx_pip_outdated",
+      "description": "List outdated Python packages with current and latest versions.",
+      "command": "pip list --outdated"
+    },
+    {
+      "name": "ctx_pip_audit",
+      "description": "Audit Python packages for known security vulnerabilities.",
+      "command": "pip-audit 2>/dev/null || safety check 2>/dev/null || echo 'Neither pip-audit nor safety is installed. Install with: pip install pip-audit'"
+    }
+  ]
+}

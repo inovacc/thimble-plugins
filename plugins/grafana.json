@@ -1,0 +1,40 @@
+{
+  "name": "grafana",
+  "version": "1.0.0",
+  "tools": [
+    {
+      "name": "ctx_grafana_dashboards",
+      "description": "List all Grafana dashboards.",
+      "command": "curl -s -H 'Authorization: Bearer {{.api_key}}' '{{.url}}/api/search?type=dash-db'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Grafana base URL",
+          "default": "http://localhost:3000"
+        },
+        "api_key": {
+          "type": "string",
+          "description": "Grafana API key or service account token",
+          "required": true
+        }
+      }
+    },
+    {
+      "name": "ctx_grafana_alerts",
+      "description": "List all Grafana provisioned alert rules.",
+      "command": "curl -s -H 'Authorization: Bearer {{.api_key}}' '{{.url}}/api/v1/provisioning/alert-rules'",
+      "input_schema": {
+        "url": {
+          "type": "string",
+          "description": "Grafana base URL",
+          "default": "http://localhost:3000"
+        },
+        "api_key": {
+          "type": "string",
+          "description": "Grafana API key or service account token",
+          "required": true
+        }
+      }
+    }
+  ]
+}
